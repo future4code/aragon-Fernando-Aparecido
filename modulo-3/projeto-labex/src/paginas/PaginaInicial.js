@@ -17,7 +17,7 @@ return <section>
             viagens.map((viagem)=>{
                 return <article>
                     <h3>{viagem.name}</h3>
-                    <p>{viagem.description}</p>
+                    <p>{viagem.description  }</p>
                 </article>
             })
         }
