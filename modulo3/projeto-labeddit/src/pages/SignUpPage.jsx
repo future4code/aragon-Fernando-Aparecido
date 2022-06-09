@@ -5,7 +5,7 @@ export default function SignUpPage (){
     <Header />
     <main>
         <h1>
-            Cadastre-se Aqui!
+        Cadastre-se Aqui!
         </h1>
     </main></>)
 }

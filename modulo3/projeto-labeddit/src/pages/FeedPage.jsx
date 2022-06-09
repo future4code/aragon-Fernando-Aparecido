@@ -1,11 +1,10 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate} from "react-router-dom"
 import { useEffect } from "react"
-import { goToLoginPage } from "../components/coodinator"
 import Header from "../components/Header"
-
+import { goToLoginPage } from "../routes/coodinator"
 
 export default function FeedPage (){
-    const navigate = useNavigate()
+const navigate =useNavigate()
     useEffect(() =>{
         const token=window.localStorage.getItem("token-labeddit")
         if (!token) {

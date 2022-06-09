@@ -4,7 +4,7 @@ export default function LoginPage (){
     return(<>
     <Header />
     <main>
-        <h1>
+    <h1>
             login
         </h1>
     </main>

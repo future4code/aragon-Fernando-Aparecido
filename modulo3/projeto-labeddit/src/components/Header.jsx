@@ -5,7 +5,8 @@ import FeedPage from "../pages/FeedPage"
 import LoginPage from "../pages/LoginPage"
 import PostDetailsPage from "../pages/PostDetailsPage"
 import SignUpPage from "../pages/SignUpPage"
-import { goToFeedPage, goToLoginPage, goToSignUpPage } from "./coodinator";
+import { goToFeedPage, goToLoginPage, goToSignUpPage } from "../routes/coodinator";
+
 export default function  Header(){
    const navigate=useNavigate()
    return(<header>
