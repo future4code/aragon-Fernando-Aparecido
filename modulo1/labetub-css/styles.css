@@ -1,0 +1,9 @@
+main {
+   display: grid; 
+   grid-template-columns:repeat(2,1fr);
+   grid-template-rows: repeat(4,1fr);
+}@media screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+}
