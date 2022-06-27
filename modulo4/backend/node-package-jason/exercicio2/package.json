@@ -1,0 +1,12 @@
+{
+  "name": "aula-node",
+  "version": "1.0.0",
+  "description": "",
+"main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 2",
+    "exercicio2":"node ./exercicio1.js",
+  "keywords": [],
+  "author": "Fernando",
+  "license": "ISC"
+}
