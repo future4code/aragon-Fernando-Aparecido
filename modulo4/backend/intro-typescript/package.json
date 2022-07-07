@@ -1,0 +1,15 @@
+{
+  "name": "intro-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+      "start": "tsc && node ./build/index.js"
+      "start3": "tsc && node ./build/exercicio3.js"
+      "start": "tsc && node ./build/index.js",
+      "start4": "tsc && node ./build/exercicio4.js",
+      "start5": "tsc && node ./build/exercicio5.js"    },
+  "keywords": []    ,
+  "author": "Fernando",
+  "license": "ISC"
+}
