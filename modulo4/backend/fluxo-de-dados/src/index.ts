@@ -78,3 +78,44 @@ app.delete(":3003/products/:id", (req: Request, res: Response) => {
         res.status(500).send(error.message)
     }
 })
+
+
+
+app.put("3003/products/:id", (req: Request, res: Response) => {
+    try {
+        const id = req.params.id
+        const { price } = req.body
+        if (typeof price !== "number") {
+            res.statusCode = 422
+            throw new Error("error: price diferente de number.")
+        }
+        if (price <= 0) {
+            res.statusCode = 422
+            throw new Error("error: price tem que ser maior ou igual a 0.")
+        }
+        const index = products.findIndex((product) => {
+            return id === id
+        })
+        if (index === -1) {
+            res.statusCode = 422
+            throw new Error("error: id não encontrado")
+        }
+        const newPrice = products.map((product) => {
+            if (product.id === id) {
+                product.price = price
+            }
+            return product
+        }
+        ).filter((product) => {
+            return product.id === id
+        })
+        res.status(201).send({
+            message: "Preço alterado",
+            product: newPrice
+        })
+    } catch (error) {
+        res.send({
+            message: error.message
+        })
+    }
+})
