@@ -1,0 +1,58 @@
+--exercicio1
+create table Projetolabenu(
+id VARCHAR(255) PRIMARY KEY, 
+name VARCHAR(255),
+title VARCHAR(255)
+date  date);
+
+--exercicio2
+
+INSERT INTO Projetolabenu(id, name, title, date)
+VALUES
+ ("001", "LabeSky",  "LSy", "2023/10/05"),
+ ("002", "Labefy",  "LFy", "2024/01/06"),
+ ("003", "AstroZoom",  "AZm", "2022/12/20");
+
+Exercicio3
+
+ALTER TABLE  Projetolabenu
+DROP COLUMN  title;
+
+ALTER TABLE Projetolabenu
+CHANGE date dueDate DATE;
+
+
+
+ALTER TABLE Projetolabenu
+MODIFY email VARCHAR(255) UNIQUE NOT NULL ;
+
+Exercicio4
+
+ALTER TABLE Projetolabenu
+ADD  description VARCHAR(255) NOT NULL;
+
+b)
+UPDATE `projetoLabenu`
+SET description = "Projeto de sistema em nuvem da Labenu"
+where = "001";
+
+UPDATE `projetoLabenu`
+SET description = "Projeto de sistema de gerenciamento de músicas da Labenu"
+where = "002";
+
+UPDATE `projetoLabenu`
+SET description "Projeto de rede de comunicação da Labenu"
+where = "003";
+
+Exercicio 5
+
+a)
+SELECT *
+FROM `projetoLabenu`
+ORDER BY dueDate DESC; 
+
+b)
+SELECT nome, dueDate
+FROM `projetoLabenu`
+ORDER BY dueDate ASC
+LIMIT 2;
