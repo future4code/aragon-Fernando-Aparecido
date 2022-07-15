@@ -1,10 +1,6 @@
 import connection from "./connection";
 import { responsibles, tasks, users } from "./data";
-
-// Variáveis table -> Definem o nome de cada tabela do banco de dados.
-const table_users = "Users";
-const table_tasks = "Tasks";
-const table_responsibles = "Responsibles";
+import { table_responsibles, table_tasks, table_users } from "./tables";
 
 // createTables -> Função que criar as tabelas do sistema ToDoList e que executa a função insertData.
 const createTables = async () => {
@@ -23,13 +19,13 @@ const createTables = async () => {
 	            description VARCHAR(255) NOT NULL,
 	            dueDate DATE NOT NULL,
 	            status ENUM ("TO_DO", "DOING", "DONE") DEFAULT "TO_DO",
-            creatorUserId VARCHAR(255) NOT NULL,
+	            creatorUserId VARCHAR(255) NOT NULL,
 	            FOREIGN KEY (creatorUserId) REFERENCES ${table_users}(id)
             );
 
             CREATE TABLE IF NOT EXISTS ${table_responsibles}(
                 userId VARCHAR(255) NOT NULL,
-                taskId VARCHAR(255) NOT NULL,
+                taskId VARCHAR(255) UNIQUE NOT NULL,
                 FOREIGN KEY (userId) REFERENCES ${table_users}(id),
                 FOREIGN KEY (taskId) REFERENCES ${table_tasks}(id)
             );
