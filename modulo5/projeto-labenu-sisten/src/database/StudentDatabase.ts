@@ -20,7 +20,7 @@ export class StudentDatabase extends BaseDatabase {
             .where("name", "LIKE", `%${name}%`)
         return result
     }
-}
+
 
     public async createStudent(newStudent: IStudentDB) {
     await BaseDatabase

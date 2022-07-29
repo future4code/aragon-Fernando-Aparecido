@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { stringify } from "querystring";
 import { ClassroomDatabase } from "../database/ClassroomDatabase";
 import { IClassroomDB } from "../models/Classroom";
-
+            
 export class ClassroomController {
     public async getAllClassrooms(req: Request, res: Response) {
         let errorCode = 400

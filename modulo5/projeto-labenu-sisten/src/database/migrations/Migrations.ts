@@ -1,8 +1,8 @@
-import { Classroom } from "../models/Classroom"
-import { BaseDatabase } from "./BaseDatabase"
+import { Classroom } from "../models../TABLE_CLASSROOMS"
+import { BaseDatabase } from "../../BaseDatabase"
 import { ClassroomDatabase } from "./ClassroomDatabase"
 import { classrooms, hobbies, students, studentsHobbies } from "./data"
-import { StudentDatabase } from "./StudentDatabase"
+import { StudentDatabase } from "../StudentDatabase"
 
 class Migrations extends BaseDatabase {
     public async execute() {

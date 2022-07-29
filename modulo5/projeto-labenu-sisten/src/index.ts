@@ -1,9 +1,9 @@
-import dotenv from "dotenv"
 import express from "express"
 import cors from "cors"
-import { Classroom } from "./models/Classroom"
+import knex from "knex"
+import dotenv from "dotenv"
 import { ClassroomController } from "./endpoints/ClassroomController"
-import { StudantController } from "./endpoints/StudentsController"
+import { StudantController } from "./endpoints/StudentController"
 
 dotenv.config()
 const app = express()
@@ -16,11 +16,12 @@ app.listen(process.env.PORT || 3003, () => {
 })
 
 const classroomController = new ClassroomController()
-const studentController = new StudantController()
+const studentController = new StudantController
 
 app.get("/classrooms", classroomController.getAllClassrooms)
 app.get("/students", studentController.getAllStudents)
+app.get("/students/name", studentController.getStudantByName)
 app.post("/classrooms", classroomController.createClassroms)
 app.post("/students", studentController.createStudent)
 app.put("/classrooms/module", classroomController.editModule)
-app.put("/students/classroom", studentController.editClassroom)
+app.put("/students/classroom", studentController.editStudentClassroom)

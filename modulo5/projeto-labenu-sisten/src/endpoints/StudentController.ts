@@ -43,14 +43,14 @@ export class StudantController {
             }
             const studentDatabase = new StudentDatabase()
 
-            await studentDatabase.editStudent(newStudent)
+            await studentDatabase.createStudent(newStudent)
             res.status(200).send({ message: "Estudante auterado com sucesso." })
         } catch (error) {
             res.status(errorCode).send({ message: error.message })
         }
     }
 
-    public async editClassroom(req: Request, res: Response) {
+    public async editStudentClassroom(req: Request, res: Response) {
         let errorCode = 400
         try {
             const studentId = req.body.studentId
