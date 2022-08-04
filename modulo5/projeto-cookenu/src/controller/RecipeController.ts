@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { idText } from "typescript";
 import { RecipeDatabase } from "../database/RecipeDatabase";
 import { Recipe } from "../models/Recipe";
 import { Authenticator } from "../services/Authenticator";
@@ -49,23 +48,37 @@ export class RecipeController {
         try {
             const token = req.headers.authorization
             const { title, description } = req.body
+            if (!token) {
+                errorCode = 401
+                throw new Error("Token ausente")
+            }
+            const payload = new Authenticator().getTokenPayload(token)
+            if (!payload) {
+                errorCode = 401
+                throw new Error("Token inválido")
+            }
             if (!title || !description) {
                 errorCode = 422
-                throw new Error("Parammetros faltando")
+                throw new Error("parametro faltando")
             }
             if (title !== "string" || description !== "string") {
                 errorCode = 415
-                throw new Error("dados invalidos")
+                throw new Error("tipo de dado incorreto")
+            }
+            if (title.length < 3) {
+                errorCode = 422
+                throw new Error("Título deve possuir 3 ou mais caracteres.")
+            }
+            if (!description) {
+                errorCode = 422
+                throw new Error("A descrição deve possuir 10 ou mais caracteres.")
             }
             const id = new IdGenerator().generate()
-            const newRecipe = new Recipe(id, title, description, new Date.now().toString(), new Date.now().toString(), )
-
+            const newRecipe = new Recipe(id, title, description, new Date(), new Date(), payload.id)
+            await new RecipeDatabase().createRecipe(newRecipe)
+            res.status(201).send({ message: "Receita criada com sucesso", newRecipe })
         } catch (error) {
-
+            res.status(errorCode).send({ message: error.message })
         }
     }
-
-
-
-
 }

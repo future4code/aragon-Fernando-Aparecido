@@ -144,5 +144,5 @@ export class UserController {
         } catch (error) {
             res.status(errorCode).send({ message: error.message })
         }
-    }
+       }
 }
