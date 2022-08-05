@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
+import { recipes } from "../database/migrations/data";
 import { RecipeDatabase } from "../database/RecipeDatabase";
 import { Recipe } from "../models/Recipe";
+import { USER_ROLES } from "../models/User";
 import { Authenticator } from "../services/Authenticator";
 import { IdGenerator } from "../services/IdGenerator";
 
@@ -81,4 +83,63 @@ export class RecipeController {
             res.status(errorCode).send({ message: error.message })
         }
     }
+    public editRecipe = async (req: Request, res: Response) => {
+        let errorCode = 400
+        try {
+            const token = req.headers.authorization
+            const { id } = req.params
+            const { title, description } = req.body
+            if (!token) {
+                errorCode = 422
+                throw new Error("token fautando.")
+            }
+
+            const payload = new Authenticator().getTokenPayload(token)
+            if (!payload) {
+                errorCode = 401
+                throw new Error("token invalido")
+
+            }
+            if (!title && !description) {
+                errorCode = 422
+                throw new Error("parâmetros ausentes.")
+            }
+            if (title && typeof title !== "string") {
+                errorCode = 422
+                throw new Error("title deve ser uma string")
+            }
+            if (description && typeof description !== "string") {
+                errorCode = 422
+                throw new Error("description deve ser uma string")
+            }
+            if (title && title.length < 3) { throw new Error("title deve ser menor que tres") }
+            if (description && description.length < 10) {
+                throw new Error("description deve possuir ao  menos 10 caractéres ")
+            }
+
+
+            const recipe = await new RecipeDatabase().findById(id)
+            if (!recipe) {
+                errorCode = 404
+                throw new Error("id não encontrada")
+            }
+            if (payload.role === USER_ROLES.NORMAL) {
+                if (payload.id !== recipe.creator_id) {
+                    errorCode = 403
+                    throw new Error("sómente o admin pode editar as receirta, que não suas proprias")
+                }
+            }
+
+            const newRecipe = new Recipe(recipe.id, recipe.title, recipe.description, recipe.created_at, (recipe.updated_at = new Date()), recipe.creator_id)
+            title && newRecipe.setTitle(title)
+            description && newRecipe.setDescription(description)
+            await new RecipeDatabase().editRecipe(newRecipe)
+            res.status(201).send({ message: "resseita editada com sucesso ", newRecipe })
+        }
+
+        catch (error) {
+            res.status(errorCode).send({ message: error.message })
+        }
+    }
+
 }
