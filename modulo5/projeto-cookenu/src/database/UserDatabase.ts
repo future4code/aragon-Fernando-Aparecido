@@ -1,3 +1,4 @@
+import { compileFunction } from "vm"
 import { IUserDB, User } from "../models/User"
 import { BaseDatabase } from "./BaseDatabase"
 import { RecipeDatabase } from "./RecipeDatabase"
@@ -13,7 +14,6 @@ export class UserDatabase extends BaseDatabase {
             password: user.getPassword(),
             role: user.getRole()
         }
-
         await BaseDatabase
             .connection(UserDatabase.TABLE_USERS)
             .insert(userDB)
@@ -24,23 +24,23 @@ export class UserDatabase extends BaseDatabase {
             .connection(UserDatabase.TABLE_USERS)
             .select()
             .where({ email })
-
         return result[0]
     }
 
-
     public findById = async (id: string) => {
-        const result: IUserDB[] = await BaseDatabase.connection(UserDatabase.TABLE_USERS).select().where({ id })
+        const result: IUserDB[] = await BaseDatabase.connection(UserDatabase.TABLE_USERS)
+            .select().where({ id })
         return result[0] ? true : false
     }
-    public deleteUser = async (id: string) => {
+
+    public deletUser = async (id: string) => {
         await BaseDatabase.connection(RecipeDatabase.TABLE_RECIPES).delete().where({ creator_id: id })
-await BaseDatabase.connection(UserDatabase.TABLE_USERS).delete().where({id})
+        await BaseDatabase.connection(UserDatabase.TABLE_USERS).delete().where({ id })
     }
 
-
-
-
-
-
+    public getAllUsers = async () => {
+        const userDB: IUserDB[] = await BaseDatabase.connection(UserDatabase.TABLE_USERS)
+            .select()
+        return userDB
+    }
 }
