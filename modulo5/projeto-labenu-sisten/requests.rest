@@ -1,0 +1,33 @@
+### Busca todas as turmas
+GET http://localhost:3003/classrooms
+        
+### busca estudantes
+GET http://localhost:3003/students
+
+### busca estudantes pelo nome
+GET http://localhost:3003/students/name
+
+### criar turma
+POST http://localhost:3003/classrooms
+    Content-Type: application/json
+
+{
+    "name": "test",
+    "modules": "6"
+}
+
+### criar estudantes
+POST http://localhost:3003/students
+    Content-Type: application/json
+
+{
+    "name": "Fernando",
+"email": "fernandoaparecido467@gmail.com",
+"birthdate": "1993/08/17",
+"classroomId": "101"
+}
+
+### auteração de turma
+
+### auteração de estudante
+                
