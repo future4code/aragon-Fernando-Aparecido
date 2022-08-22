@@ -14,7 +14,7 @@ export class UserBusiness {
         private idGenerator: IdGenerator,
         private hashManager: HashManager,
         private authenticator: Authenticator
-    ) {}
+    ) { }
 
     public signup = async (input: ISignupInputDTO) => {
         const { name, email, password } = input
@@ -44,7 +44,7 @@ export class UserBusiness {
         }
 
         const isEmailAlreadyExists = await this.userDatabase.findByEmail(email)
-        
+
         if (isEmailAlreadyExists) {
             throw new ConflictError("Email já cadastrado")
         }
@@ -97,7 +97,7 @@ export class UserBusiness {
         }
 
         const userDB = await this.userDatabase.findByEmail(email)
-        
+
         if (!userDB) {
             throw new NotFoundError("Email não cadastrado")
         }

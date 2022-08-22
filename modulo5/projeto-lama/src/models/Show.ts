@@ -1,23 +1,9 @@
+
 export interface IShowDB {
     id: string,
     band: string,
     starts_at: Date
 }
-
-export interface ICreateShowInputDTO {
-    token: string,
-    band: string,
-    starts_at: Date
-}
-
-export interface ICreateShowOutputDTO {
-    message: string,
-    show: Show
-}
-
-export interface IGetShowInputDTO {token: string}
-
-export interface IGetShowOutputDTO {shows: Show[]}
 
 export interface ITicketDB {
     id: string,
@@ -31,7 +17,7 @@ export class Show {
         private band: string,
         private startsAt: Date,
         private tickets: number = 5000
-    ) {}
+    ) { }
 
     public getId = () => {
         return this.id
@@ -64,4 +50,58 @@ export class Show {
     public setTickets = (newTickets: number) => {
         this.tickets = newTickets
     }
+}
+
+export interface IGetShowInputDTO {
+    token: string,
+    search?: string,
+    sort?: string,
+    limit?: number,
+    page?: number,
+    offset?: number
+}
+
+export interface IDeleteInputDTO {
+    token: string,
+    id: string
+}
+
+export interface ICreateShowInputDTO {
+    token: string,
+    band: string,
+    startsAt: string,
+    tickets?: number
+}
+
+export interface ICreateShowOutputDTO {
+    message: string,
+    show: Show
+}
+
+export interface IDeleteShowOutputDTO {
+    message: string
+}
+
+export interface IGetShowOutputDTO {
+    shows: Show[]
+}
+
+export interface IBuyTicketInputDTO {
+    token: string,
+    showId: string
+}
+
+export interface IBuyTicketOutputDTO {
+    message: string,
+    showDate: Date,
+    band: string
+}
+
+export interface IDeleteTicketInputDTO {
+    token: string,
+    showId: string
+}
+
+export interface IDeleteTicketOutputDTO {
+    message: string
 }

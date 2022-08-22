@@ -18,7 +18,7 @@ export class User {
         private email: string,
         private password: string,
         private role: USER_ROLES
-    ) {}
+    ) { }
 
     public getId = () => {
         return this.id
@@ -32,7 +32,7 @@ export class User {
         return this.email
     }
 
-public getPassword = () => {
+    public getPassword = () => {
         return this.password
     }
 

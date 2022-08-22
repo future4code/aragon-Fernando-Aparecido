@@ -1,3 +1,42 @@
 ### Endpoint de teste
 GET http://localhost:3003/ping
 
+### 1) Signup
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+    "name": "fernando",
+    "email": "fernanoaparecido467@gmail.com",
+    "password": "fernando123"
+}
+
+### 2) Login
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+    "email": "fernanoaparecido467@gmail.com",
+    "password": "fernando123"
+}
+
+### 3) Create show
+POST http://localhost:3003/shows
+Authorization: 
+Content-Type: application/json
+
+{
+    "band": "Sabaton",
+    "startsAt": "2022/12/08"
+}
+
+### 4) Get shows
+GET http://localhost:3003/shows
+
+### 5) Buy ticket
+POST http://localhost:3003/shows/201/ticket
+Authorization: 
+
+### 6) Delete ticket
+DELETE http://localhost:3003/shows/201/ticket
+Authorization: 
