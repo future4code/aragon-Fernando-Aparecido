@@ -1,0 +1,30 @@
+### Endpoint de teste
+GET http://localhost:3003/ping
+
+### Get all users
+GET http://localhost:3003/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU0NjJiMjg0LWEyOGQtNGM2MC05ZjYyLTczNDJkZDllZmIyZSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NTk5ODk5NzEsImV4cCI6MTY2MDA3NjM3MX0.7KY_AeTeH3x_cplcwoXxG2Vx7M4zX5t2u-zS49RjfbE
+
+### Signup
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+    "name": "Fernando ",
+    "email": "fernandoaparecido467@gmail.com",
+    "password": "abc1234"
+}
+
+### Login
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+    "email": "pamelamaiara1998@gmail.com",
+    "password": "abc123"
+}
+
+### Delete user
+DELETE url HTTP/1.1 http://localhost:3003/users
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU0NjJiMjg0LWEyOGQtNGM2MC05ZjYyLTczNDJkZDllZmIyZSIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NTk5ODk5NzEsImV4cCI6MTY2MDA3NjM3MX0.7KY_AeTeH3x_cplcwoXxG2Vx7M4zX5t2u-zS49RjfbE
