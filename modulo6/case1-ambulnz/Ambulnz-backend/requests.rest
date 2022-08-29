@@ -1,0 +1,30 @@
+### Endpoint de teste
+GET http://localhost:3003/ping
+
+### Signup
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+    "name": "astrodev",
+    "email": "astrodev@gemail.com",
+"password": "abc123"
+}
+
+### logn
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+    "name": "astrodev",
+    "email": "astrodev@gemail.com",
+"password": "abc123"
+}
+
+### Get all pizza
+GET http://localhost:3003/pizzas
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk4NGE2ZjRkLWYyYzAtNDRmZC04NWY1LWU2YWQ3NjliYzRlZiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NjEzNjI3MzAsImV4cCI6MTY2MTQ0OTEzMH0.izU3pecG_mGi6edIim9yJxtZD5h0W9YBnRY_CsGs0dE
+
+### get orders
+GET http://localhost:3003/orders
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijk4NGE2ZjRkLWYyYzAtNDRmZC04NWY1LWU2YWQ3NjliYzRlZiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2NjEzNjI3MzAsImV4cCI6MTY2MTQ0OTEzMH0.izU3pecG_mGi6edIim9yJxtZD5h0W9YBnRY_CsGs0dE
