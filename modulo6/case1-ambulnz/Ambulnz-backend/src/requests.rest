@@ -1,0 +1,55 @@
+        ### Endpoint de teste
+GET http://localhost:3003/ping
+
+### Signup
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+    "name": "fernando",
+    "email": "fernando@gmail.com",
+    "password": "dfg1234"
+}
+
+### 2) Login
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+    "email": "astrodev@gmail.com",
+    "password": "bananinha"
+}
+        
+### 3) Create pizza
+POST http://localhost:3003/pizza
+Authorization: 
+Content-Type: application/json
+
+{
+"name": "Paris",
+"price": 50.00,
+"ingredients": "doce de leite com morangos"
+}
+
+### 4) Edit pizza
+    PUT http://localhost:3003/pizza/101
+Authorization: 
+Content-Type: application/json
+
+{
+"name": "Alemanha",
+"price": 45,00,
+"ingredients": "catupiri com brocolis"
+}
+
+### 5) Delete pizza
+DELETE http://localhost:3003/pizza/101
+Authorization: 
+### 6) Get all pizza
+GET http://localhost:3003/pizza
+Authorization: 
+### 7) Delete user
+DELETE http://localhost:3003/users/
+Authorization: 
+### 8) Get Orders
+GET http://localhost:3003/Order

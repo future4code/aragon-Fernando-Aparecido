@@ -35,7 +35,7 @@ export class PizzaController {
                 return res.status(error.statusCode).send({ message: error.message })
             }
             console.log(error)
-            res.status(500).send({ message: "Erro inesperado ao buscar shows" })
+            res.status(500).send({ message: "Erro inesperado ao buscar Pizzas" })
         }
     }
 
@@ -58,8 +58,7 @@ export class PizzaController {
     public getOrders = async (req: Request, res: Response) => {
         try {
             const input: IGetOrderInputDTO = {
-                token: req.headers.authorization
-            }
+                token: req.headers.authorization            }
             const response = await this.pizzaBusiness.getOrders(input)
             res.status(200).send(response)
         } catch (error: unknown) {

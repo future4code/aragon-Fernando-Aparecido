@@ -17,4 +17,4 @@ app.listen(process.env.PORT || 3003, () => {
 
 app.use("/ping", pingRouter)
 app.use("/users", userRouter)
-app.use("/pizzas", pizzaRouter)
+app.use("/pizza", pizzaRouter)

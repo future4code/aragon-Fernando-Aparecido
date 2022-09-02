@@ -17,7 +17,7 @@ export class PizzaBusiness {
         private authenticator: Authenticator
     ) { }
 
-    public createPizza = async (input: ICreatePizzaInputDTO) => {
+        public createPizza = async (input: ICreatePizzaInputDTO) => {
         const { token, name, price, ingredients } = input
         if (!token) {
             throw new UnauthorizedError("Token inválido ou faltando")
@@ -58,10 +58,7 @@ export class PizzaBusiness {
                 pizzaDB.ingredients
             )
         })
-        for (let pizza of pizzas) {
-            const orders = await this.pizzaDatabase.getOrderById(pizza.getId())
-            orders.valueOf
-        }
+        
         const response: IGetPizzaOutputDTO = {
             pizzas
         }
