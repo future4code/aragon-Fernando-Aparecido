@@ -1,4 +1,5 @@
-        ### Endpoint de teste
+https://meet.google.com/naw-funm-tva
+            ### Endpoint de teste
 GET http://localhost:3003/ping
 
 ### Signup
@@ -22,7 +23,7 @@ Content-Type: application/json
         
 ### 3) Create pizza
 POST http://localhost:3003/pizza
-Authorization: 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MjQwMjM1NCwiZXhwIjoxNjYyNDg4NzU0fQ.4aL-YTJh2VLVNHykE-B-WBW1YnMFtWDRI8XH11qAdys"  
 Content-Type: application/json
 
 {
@@ -31,25 +32,12 @@ Content-Type: application/json
 "ingredients": "doce de leite com morangos"
 }
 
-### 4) Edit pizza
-    PUT http://localhost:3003/pizza/101
-Authorization: 
-Content-Type: application/json
-
-{
-"name": "Alemanha",
-"price": 45,00,
-"ingredients": "catupiri com brocolis"
-}
-
 ### 5) Delete pizza
-DELETE http://localhost:3003/pizza/101
-Authorization: 
+DELETE http://localhost:3003/pizza/201
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MjQwMjM1NCwiZXhwIjoxNjYyNDg4NzU0fQ.4aL-YTJh2VLVNHykE-B-WBW1YnMFtWDRI8XH11qAdys  
 ### 6) Get all pizza
 GET http://localhost:3003/pizza
-Authorization: 
-### 7) Delete user
-DELETE http://localhost:3003/users/
-Authorization: 
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MjQwMjM1NCwiZXhwIjoxNjYyNDg4NzU0fQ.4aL-YTJh2VLVNHykE-B-WBW1YnMFtWDRI8XH11qAdys  
 ### 8) Get Orders
-GET http://localhost:3003/Order
+GET http://localhost:3003/pizza/orders
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MjQwMjM1NCwiZXhwIjoxNjYyNDg4NzU0fQ.4aL-YTJh2VLVNHykE-B-WBW1YnMFtWDRI8XH11qAdys  
