@@ -1,6 +1,10 @@
-export default function SignupPage() {
+import { useNavigate } from "react-router-dom";
+import useForm from "../../hooks/useForm";
+import { goToLoginPage } from "../../routes/cordinator";
+import { requestSignUp } from "../../services/requests";
 
-    const useNavigate = useNavigate();
+export default function SignupPage() {
+    const navigate = useNavigate();
     const { form, onChange, clear } = useForm({ name: "", email: "", password: "" });
     const signup = (event) => {
         event.preventDefault();
@@ -11,9 +15,6 @@ export default function SignupPage() {
     return (
         <main>
 
-            <Header
-                isProtected={false}
-            />
             <hr />
             <section>
                 <h2>Cadastro de Novo Usuário</h2>
@@ -57,4 +58,5 @@ export default function SignupPage() {
         </main>
     );
 };
+
 

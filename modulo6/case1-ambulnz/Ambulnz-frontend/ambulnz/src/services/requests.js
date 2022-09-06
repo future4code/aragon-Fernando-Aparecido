@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { goToFeedPage } from '../routes/coordinator';
 import { BASE_URL } from "../constants/urls";
+import { goToMenuPage } from '../routes/cordinator';
 
 export const requestLogin = (form, clear, navigate) => {
     const body = {
@@ -12,7 +12,7 @@ export const requestLogin = (form, clear, navigate) => {
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("userEmail", form.email);
             alert("Login realizado com sucesso!");
-            goToFeedPage(navigate);
+            goToMenuPage(navigate);
         })
         .catch((err) => {
             alert("Email e/ou senha inválidos! Tente novamente");
@@ -33,7 +33,7 @@ export const requestSignUp = (form, clear, navigate) => {
             localStorage.setItem("token", res.data.token);
             localStorage.setItem("userEmail", form.email);
             alert("Usuário criado com sucesso! Seja bem-vindo!");
-            goToFeedPage(navigate);
+            goToMenuPage(navigate);
         })
         .catch((err) => {
             alert("Algo deu errado! Tente novamente");
